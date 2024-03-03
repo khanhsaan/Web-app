@@ -3,7 +3,6 @@
 <body>
   <form class="row g-3 py-4 px-5" action="/result" method="POST">
     <!-- Task information -->
-
     <!-- The outermost div as a container -->
     <div id="tasks">
         <!-- The task  -->
@@ -25,10 +24,10 @@
           <p class="title">Task 1</p>
           <div class = "row">
             <div class="col-md-6">
-              <input type="text" class="form-control" name="task_name" placeholder="Task name..." required>
+              <input type="text" class="form-control my-2" name="task_name" placeholder="Task name..." required>
             </div>
             <div class="col-md-4">
-              <select id="inputState" class="form-select" name="task_weight" required>
+              <select id="inputState" class="form-select my-2" name="task_weight" required>
                 <option selected>Priority...</option>
                 <option>1</option>
                 <option>2</option>
@@ -38,7 +37,7 @@
               </select>
             </div>
             <div class="col-md-2">
-              <input type="number" class="form-control" name="task_time" placeholder="Duration..." required>
+              <input type="number" class="form-control my-2" name="task_time" placeholder="Duration..." required>
             </div>
           </div>
         </div>
@@ -69,10 +68,10 @@
       <p class="title">Task ${container.children.length + 1}</p>
       <div class = "row">
             <div class="col-md-6">
-              <input type="text" class="form-control" name="task_name" placeholder="Task name...">
+              <input type="text" class="form-control my-2" name="task_name" placeholder="Task name...">
             </div>
             <div class="col-md-4">
-              <select id="inputState" class="form-select" name="task_weight">
+              <select id="inputState" class="form-select my-2" name="task_weight">
                 <option selected>Priority...</option>
                 <option>1</option>
                 <option>2</option>
@@ -82,7 +81,7 @@
               </select>
             </div>
             <div class="col-md-2">
-              <input type="number" class="form-control" name="task_time" placeholder="Duration...">
+              <input type="number" class="form-control my-2" name="task_time" placeholder="Duration...">
             </div>
           </div>
       `;
