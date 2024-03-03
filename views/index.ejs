@@ -1,23 +1,20 @@
 <%- include("partials/header.ejs")%>
 <body>
-    <div class="px-4 py-5 my-5 text-center">
-        <!-- <img class="d-block mx-auto mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-
+      <div class="px-4 pt-5 my-5 text-center">
         <h1 class="display-5 fw-bold text-body-emphasis">EzyTask</h1>
         <div class="col-lg-6 mx-auto">
-          <p class="lead mb-4">Welcome to EzyTask, where we specialize in empowering you to conquer your to-do list with ease and efficiency. In the chaos of our daily lives, staying organized and prioritizing tasks can often feel like an insurmountable challenge. That's where we come in. Our mission is to provide you with the tools and strategies necessary to streamline your workflow, maximize productivity, and ultimately achieve your goals.</p>
-          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <!-- <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button> -->
+          <p class="lead mb-4">Welcome to EzyTask, where we specialize in empowering you to conquer your to-do list with ease and efficiency. In the chaos of our daily lives, staying organized and prioritizing tasks can often feel like an insurmountable challenge. That's where we come in. Our mission is to provide you with the tools and strategies necessary to streamline your workflow, maximize productivity, and ultimately achieve your goals</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
             <form action="/main" method="GET">
-                <input  class="btn btn-outline-secondary btn-lg px-4"  type="submit" value="Get's started">
+              <input  class="btn btn-lg px-4 btn-primary"  type="submit" value="Get's started">
             </form>
-
-            <!-- Second button -->
-            <!-- <form action="/submit" method="POST">
-                <input  class="btn btn-outline-secondary btn-lg px-4"  type="submit" value="Get's started">
-            </form> -->
           </div>
-        </div>  
+        </div>
+        <div class="overflow-hidden" style="max-height: 30vh;">
+          <div class="container px-5">
+            <img src="Screenshot.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+          </div>
+        </div>
       </div>
 </body>
 <%- include("partials/footer.ejs")%>
