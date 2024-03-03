@@ -21,13 +21,15 @@
             </div>
         </div> -->
         <div class = "task">
-          <p class="title">Task 1</p>
+          <p class="title fw-bold">Task 1</p>
           <div class = "row">
             <div class="col-md-6">
-              <input type="text" class="form-control my-2" name="task_name" placeholder="Task name..." required>
+              <label for="task_name" class="form-label">What's your task about?</label>
+              <input type="text" class="form-control my-2" name="task_name" id="task_name" placeholder="Task name..." required>
             </div>
             <div class="col-md-4">
-              <select id="inputState" class="form-select my-2" name="task_weight" required>
+              <label for="task_weight" class="form-label">On the scale 1 to 5, how is it important? </label>
+              <select id="inputState" class="form-select my-2" id="task_weight" name="task_weight" required>
                 <option selected>Priority...</option>
                 <option>1</option>
                 <option>2</option>
@@ -37,7 +39,8 @@
               </select>
             </div>
             <div class="col-md-2">
-              <input type="number" class="form-control my-2" name="task_time" placeholder="Duration..." required>
+              <label for="task_time" class="form-label">How long does it take?</label>
+              <input type="number" class="form-control my-2" id="task_time" name="task_time" placeholder="Duration..." required>
             </div>
           </div>
         </div>
@@ -65,7 +68,7 @@
       // Assign a class to the div
       newTask.classList.add(`task`);
       newTask.innerHTML = `
-      <p class="title">Task ${container.children.length + 1}</p>
+      <p class="title fw-bold">Task ${container.children.length + 1}</p>
       <div class = "row">
             <div class="col-md-6">
               <input type="text" class="form-control my-2" name="task_name" placeholder="Task name...">
@@ -89,5 +92,3 @@
     }
   </script>
 </body>
-
-<%- include("partials/footer.ejs")%>
