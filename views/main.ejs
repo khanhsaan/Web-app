@@ -23,12 +23,12 @@
         <div class = "task">
           <p class="title fw-bold">Task 1</p>
           <div class = "row">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <label for="task_name" class="form-label">What's your task about?</label>
               <input type="text" class="form-control my-2" name="task_name" id="task_name" placeholder="Task name..." required>
             </div>
-            <div class="col-md-4">
-              <label for="task_weight" class="form-label">On the scale 1 to 5, how is it important? </label>
+            <div class="col-md-2">
+              <label for="task_weight" class="form-label">How's it important? </label>
               <select id="inputState" class="form-select my-2" id="task_weight" name="task_weight" required>
                 <option selected>Priority...</option>
                 <option>1</option>
@@ -38,16 +38,21 @@
                 <option>5</option>
               </select>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
               <label for="task_time" class="form-label">How long does it take?</label>
               <input type="number" class="form-control my-2" id="task_time" name="task_time" placeholder="Duration..." required>
+            </div>
+            <div class="col-md-3">
+              <p></p>
+              <button type="button" class="btn btn-secondary mt-4" id="delete_task" name="delete_task">Remove task</button>
             </div>
           </div>
         </div>
     </div>
 
-    <div class="col">
-      <input type="number" name="total_time" class="form-control" placeholder="Total time to spend..." required>
+    <div class="col-md-4">
+      <label for="total" class="form-label fw-bold">How many total minutes to spend</label>
+      <input type="number" name="total_time" id="total" class="form-control" placeholder="Total time to spend..." required>
     </div>
     <%console.log()%>
 
@@ -60,6 +65,14 @@
 
 
   <script>
+    // array to contain the tasks
+    var arrary_tasks = [];
+
+    // Add two more tasks to default screen
+    addTask();
+    addTask();
+
+    // function to add more task when user clicks the button
     function addTask(){
       // The outermost div as a container
       var container = document.getElementById('tasks');
@@ -70,11 +83,11 @@
       newTask.innerHTML = `
       <p class="title fw-bold">Task ${container.children.length + 1}</p>
       <div class = "row">
-            <div class="col-md-6">
-              <input type="text" class="form-control my-2" name="task_name" placeholder="Task name...">
-            </div>
             <div class="col-md-4">
-              <select id="inputState" class="form-select my-2" name="task_weight">
+              <input type="text" class="form-control my-2" name="task_name" placeholder="Task name..." required>
+            </div>
+            <div class="col-md-2">
+              <select id="inputState" class="form-select my-2" name="task_weight" required>
                 <option selected>Priority...</option>
                 <option>1</option>
                 <option>2</option>
@@ -83,12 +96,33 @@
                 <option>5</option>
               </select>
             </div>
-            <div class="col-md-2">
-              <input type="number" class="form-control my-2" name="task_time" placeholder="Duration...">
+            <div class="col-md-3">
+              <input type="number" class="form-control my-2" name="task_time" placeholder="Duration..." required>
+            </div>
+            <div class="col-md-3 my-2">
+              <button type="button" class="btn btn-secondary delete_task" id="delete_task" name="delete_task">Remove task</button>
             </div>
           </div>
       `;
-      container.appendChild(newTask);
+
+    // Get the delete button within the new task
+    var deleteButton = newTask.querySelector('.delete_task');
+    // Add event listener to the delete button
+    deleteButton.addEventListener('click', function() {
+    // Remove the parent element of the button (which is the task)
+    container.removeChild(newTask);
+});
+
+container.appendChild(newTask);
     }
+
+    function deleteTask(){
+      var deleteButton = document.getElementById("delete_task")
+      deleteButton.addEventListener('click', function() {
+        arrary_tasks.pop();
+    });
+    }
+
   </script>
 </body>
+<%- include("partials/footer.ejs")%>
