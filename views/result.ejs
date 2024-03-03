@@ -1,0 +1,26 @@
+<%- include("partials/header.ejs")%>
+
+<body>
+    <h2 class="fs-2 fw-bold text-center mt-5">Here's what you can do</h2>
+    <div class="d-flex flex-column flex-md-row p-4 gap- 4 py-md-4 align-items-center justify-content-center" >
+        <div class="list-group" id="container">
+            <%for(var i = 0; i < result_array.length; i ++){%>
+            <label class="list-group-item d-flex gap-3">
+                <input class="form-check-input flex-shrink-0" type="checkbox" value="uncheck" style="font-size: 1.375em;">
+                <span class="pt-1 form-checked-content">
+                    <strong><%= result_array[i].getName()%></strong>
+                    <small class="d-block text-body-secondary">
+                        Duration: <%=result_array[i].getTime()%>
+                    </small>
+                    <!-- <small class="d-block text-body-secondary">
+                        <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#calendar-event"></use></svg>
+                        1:00–2:00pm
+                    </small> -->
+                </span>
+            </label>
+            <%}%>
+        </div>
+    </div>    
+    <h2 class="spare text-center fs-4">You have <%=time_left%> minutes to spare</h2>
+</body>
+<%- include("partials/footer.ejs")%>

@@ -1,0 +1,14 @@
+.task-size{
+    padding-left: 20rem;
+    padding-right: 20rem;
+}
+
+.title{
+    padding-top: 1rem;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    width: 90%;
+}

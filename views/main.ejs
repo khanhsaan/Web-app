@@ -1,0 +1,94 @@
+<%- include("partials/header.ejs") %>
+
+<body>
+  <form class="row g-3 py-4 task-size" action="/result" method="POST">
+    <!-- Task information -->
+
+    <!-- The outermost div as a container -->
+    <div id="tasks">
+        <!-- The task  -->
+        <!-- <div class="task">
+            <p class="title">Task 1</p>
+            <div class="row">
+              <div class="col">
+                <input type="text" name="task_name" class="form-control" placeholder="Task name..." required>
+              </div>
+              <div class="col">
+                <input type="number" name="task_weight" class="form-control" placeholder="Task weight..." required>
+              </div>
+              <div class="col">
+                <input type="number" name="task_time" class="form-control" placeholder="Time to complete..." required>
+              </div>
+            </div>
+        </div> -->
+        <div class = "task">
+          <p class="title">Task 1</p>
+          <div class = "row">
+            <div class="col-md-6">
+              <input type="text" class="form-control" name="task_name" placeholder="Task name..." required>
+            </div>
+            <div class="col-md-4">
+              <select id="inputState" class="form-select" name="task_weight" required>
+                <option selected>Priority...</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <input type="number" class="form-control" name="task_time" placeholder="Duration..." required>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="col">
+      <input type="number" name="total_time" class="form-control" placeholder="Total time to spend..." required>
+    </div>
+    <%console.log()%>
+
+    <!-- Add task button -->
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <button type="button" onclick="addTask()" class="btn btn-primary">Add Task</button>
+        <input class="btn btn-primary" type="submit" value="Submit">
+    </div>
+  </form>
+
+
+  <script>
+    function addTask(){
+      // The outermost div as a container
+      var container = document.getElementById('tasks');
+      // Create a new div
+      var newTask = document.createElement('div');
+      // Assign a class to the div
+      newTask.classList.add(`task`);
+      newTask.innerHTML = `
+      <p class="title">Task ${container.children.length + 1}</p>
+      <div class = "row">
+            <div class="col-md-6">
+              <input type="text" class="form-control" name="task_name" placeholder="Task name...">
+            </div>
+            <div class="col-md-4">
+              <select id="inputState" class="form-select" name="task_weight">
+                <option selected>Priority...</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <input type="number" class="form-control" name="task_time" placeholder="Duration...">
+            </div>
+          </div>
+      `;
+      container.appendChild(newTask);
+    }
+  </script>
+</body>
+
+<%- include("partials/footer.ejs")%>
