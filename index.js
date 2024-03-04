@@ -44,29 +44,40 @@ app.post("/result", (req, res) =>{
     var array = [];
     var result= [];
     // array.push(taskW)
-    for(var i = 0; i < taskW.length && i < taskT.length && i < taskN.length; i ++){
-        var task = new taskClass(taskW[i], taskT[i], taskN[i]);
-        array.push(task);
-        timeTotal += taskT[i];
-        console.log(task.getName());
-    }
-    array.sort((a, b) => b.getWeight() - a.getWeight());
-    console.log("Total time: " + totalT);
-    for(var i = 0; i < array.length; i ++){
-        console.log("Task: " + array[i].getName() + " " + array[i].getTime());
-        if(totalT - array[i].getTime() >=0){
-            console.log("Picked Task: " + array[i].getName() + " " + array[i].getTime());
-            result.push(array[i]);  
-            totalT -= array[i].getTime();
-            console.log("Total time left: " + totalT);
+    console.log("taskT.length " + taskT.length);
+    console.log("taskN.length " + taskN.length);
+    if(taskT.length > 1){
+        for(var i = 0; i < taskW.length && i < taskT.length && i < taskN.length; i ++){
+            var task = new taskClass(taskW[i], taskT[i], taskN[i]);
+            array.push(task);
+            timeTotal += taskT[i];
+            console.log(task.getName());
         }
+        array.sort((a, b) => b.getWeight() - a.getWeight());
+        console.log("Total time: " + totalT);
+        for(var i = 0; i < array.length; i ++){
+            console.log("Task: " + array[i].getName() + " " + array[i].getTime());
+            if(totalT - array[i].getTime() >=0){
+                console.log("Picked Task: " + array[i].getName() + " " + array[i].getTime());
+                result.push(array[i]);  
+                totalT -= array[i].getTime();
+                console.log("Total time left: " + totalT);
+            }
+        }
+    } else if(taskT.length === 1){
+        var task = new taskClass(taskW, taskT, taskN);
+        // array.push(task);
+        timeTotal += taskT;
+        console.log("One task " + task.getName());
+        totalT -= taskT;
+        result.push(task);
     }
+    
     console.log(result);
     res.render("result.ejs", {
         result_array: result,
         time_left: totalT,
         sever_port: port,
-        total_time: timeTotal,
     });
     // res.redirect("/main");   
 });
@@ -100,4 +111,6 @@ app.get("/result", (req, res) => {
 app.listen(port, () => {
     console.log("Server running on port 3000");
 });
+
+
 
